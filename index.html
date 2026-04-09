@@ -3,155 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Agiliza SUAPE</title>
+    <title>Portal SUAPE & Agiliza SUAPE</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-    <div class="logo-text">AGILIZA SUAPE</div>
-    <div class="header-title">Cadastro de Empresas de Resíduos Sólidos e/ou Oleosos</div>
-</header>
+    <div id="home-page" class="view-active">
+        <div class="top-bar">
+            <div class="top-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <span>Como trabalhar no complexo?</span>
+                <span>Ouvidoria</span>
+                <span>Acessibilidade</span>
+            </div>
+            <div class="top-actions">
+                <span>A- A A+</span>
+                <i class="fa-solid fa-circle-half-stroke"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <select><option>PT</option></select>
+                <button class="btn-visite">Visite suape</button>
+            </div>
+        </div>
 
-<div class="container">
-    <button class="btn-voltar">&#8592; VOLTAR AO PORTAL</button>
+        <div class="hero-section">
+            <nav class="main-nav">
+                <div class="logo-suape">
+                    <i class="fa-solid fa-sun"></i> SUAPE
+                </div>
+                <ul class="nav-menu">
+                    <li>Início</li>
+                    <li>Governança <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></li>
+                    <li>Negócios <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></li>
+                    <li>Sustentabilidade</li>
+                    <li>Operações <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></li>
+                    <li>Transparência <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></li>
+                    <li>Fale Conosco</li>
+                    <li><i class="fa-solid fa-bars"></i></li>
+                </ul>
+            </nav>
 
-    <form id="cadastroForm">
+            <div class="cards-container">
+                <div class="action-card"><i class="fa-solid fa-file-invoice-dollar"></i><p>Tarifas Públicas</p></div>
+                <div class="action-card"><i class="fa-solid fa-building"></i><p>Empresas em Suape</p></div>
+                <div class="action-card"><i class="fa-solid fa-crane"></i><p>Movimentação de cargas</p></div>
+                <div class="action-card"><i class="fa-solid fa-gavel"></i><p>Licitações</p></div>
+                <div class="action-card"><i class="fa-solid fa-ship"></i><p>Operadores portuários</p></div>
+                
+                <div class="action-card card-destaque" id="btn-abrir-login">
+                    <i class="fa-solid fa-bolt"></i>
+                    <p>Agiliza SUAPE</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <div class="form-section">
-            <div class="section-title">Dados da Empresa</div>
+
+    <div id="login-page" class="view-hidden auth-background">
+        <div class="auth-card" style="max-width: 400px;">
+            <button class="btn-voltar-pequeno" id="btn-voltar-home-from-login"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
             
-            <label>Nome da Empresa:</label>
-            <input type="text" id="razaoSocial" placeholder="Razão Social" required>
-
-            <label>CNPJ: <span class="sub-label">(Este será o ID de identificação no sistema)</span></label>
-            <input type="text" id="cnpj" placeholder="00.000.000/0000-00" required>
+            <h2 class="auth-title">Login</h2>
             
-            <input type="hidden" id="empresaId" name="empresaId">
+            <form id="form-login">
+                <div class="input-icon-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="login-cnpj" placeholder="CNPJ" required>
+                </div>
+                
+                <div class="input-icon-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="login-senha" placeholder="Senha" required>
+                </div>
 
-            <div class="grid-row">
-                <div><label>CEP:</label><input type="text" id="cep" placeholder="00000-000"></div>
-                <div><label>Número:</label><input type="text"></div>
-                <div><label>Complemento:</label><input type="text"></div>
-            </div>
+                <div class="text-right">
+                    <a href="#" class="auth-link">Esqueceu sua senha?</a>
+                </div>
 
-            <label>Telefone de Contato:</label>
-            <input type="tel" id="tel" placeholder="(00) 00000-0000">
-        </div>
+                <button type="submit" class="btn-suape">ENTRAR</button>
+            </form>
 
-        <div class="form-section">
-            <div class="section-title">Classificação de Serviço e Operação</div>
-
-            <label>Tipos de Resíduos Tratados:</label>
-            <div class="options-group">
-                <label><input type="checkbox" name="tipoResiduo" value="solido"> Resíduos Sólidos</label>
-                <label><input type="checkbox" name="tipoResiduo" value="liquido"> Resíduos Líquidos (Efluentes)</label>
-            </div>
-
-            <label>Tipo de Operação de Retirada Permitida:</label>
-            <div class="options-group">
-                <label><input type="checkbox" name="tipoOperacao" value="terrestre"> Terrestre</label>
-                <label><input type="checkbox" name="tipoOperacao" value="atracada"> Atracada</label>
-                <label><input type="checkbox" name="tipoOperacao" value="contra_borda"> A Contra Borda</label>
-                <label><input type="checkbox" name="tipoOperacao" value="ao_largo"> Ao Largo</label>
+            <div class="text-center" style="margin-top: 20px;">
+                <span class="auth-text">Ainda não é cadastrado?</span> 
+                <a href="#" class="auth-link bold" id="link-ir-cadastro">Clique aqui</a>
             </div>
         </div>
+    </div>
 
-        <div class="form-section">
-            <div class="section-title">Documentação Obrigatória</div>
-            <a href="#" class="btn-modelo">BAIXAR MODELOS DE DOCUMENTOS ANEXOS (.ZIP)</a>
+
+    <div id="cadastro-categoria-page" class="view-hidden auth-background">
+        <div class="auth-card" style="max-width: 800px;">
+            <button class="btn-voltar-pequeno" id="btn-voltar-login-from-cat"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
             
-            <div class="doc-row">
-                <div style="flex: 2;">
-                    <label>Carta de Apresentação de Anexo <span class="sub-label">(Conforme modelo da administração)</span></label>
-                    <div class="file-input-container">
-                        <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                        <input type="file" style="display:none" onchange="updateFileName(this)" required>
-                        <div class="file-name">Nenhum arquivo escolhido</div>
-                    </div>
-                </div>
+            <h2 class="auth-title" style="margin-bottom: 30px;">Selecione o tipo de cadastro</h2>
+
+            <div class="category-grid">
+                <button class="btn-suape btn-category" id="btn-cat-oleoso">Resíduos Sólidos e/ou Oleosos</button>
+                <button class="btn-suape btn-category" onclick="alert('Módulo em desenvolvimento.')">Abastecimento de Água</button>
+                <button class="btn-suape btn-category" onclick="alert('Módulo em desenvolvimento.')">Abastecimento de Combustível</button>
+                <button class="btn-suape btn-category" onclick="alert('Módulo em desenvolvimento.')">Controle de Pragas</button>
+                <button class="btn-suape btn-category" onclick="alert('Módulo em desenvolvimento.')">Arrendatários</button>
+                <button class="btn-suape btn-category" onclick="alert('Módulo em desenvolvimento.')">Agências de Navegação</button>
+                <button class="btn-suape btn-category" onclick="alert('Módulo em desenvolvimento.')">Operadores Portuários</button>
             </div>
 
-            <div class="doc-row">
-                <div style="flex: 2;">
-                    <label>Formulário da ANTAQ <span class="sub-label">(PDF)</span></label>
-                    <div class="file-input-container">
-                        <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                        <input type="file" style="display:none" onchange="updateFileName(this)" required>
-                        <div class="file-name">Nenhum arquivo escolhido</div>
-                    </div>
-                </div>
-                <div style="flex: 1;">
-                    <label>Data de Validade</label>
-                    <input type="date">
-                </div>
-            </div>
-
-            <div class="doc-row">
-                <div style="flex: 2;">
-                    <label>Autorização da ANP / Cópia de Autorização da ANTAQ <span class="sub-label">(PDF)</span></label>
-                    <div class="file-input-container">
-                        <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                        <input type="file" style="display:none" onchange="updateFileName(this)">
-                        <div class="file-name">Nenhum arquivo escolhido</div>
-                    </div>
-                </div>
-                <div style="flex: 1;">
-                    <label>Data de Validade</label>
-                    <input type="date">
-                </div>
-            </div>
-
-            <div class="doc-row">
-                <div style="flex: 2;">
-                    <label>Ato Constitutivo, Estatuto ou Contrato Social</label>
-                    <div class="file-input-container">
-                        <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                        <input type="file" style="display:none" onchange="updateFileName(this)" required>
-                        <div class="file-name">Nenhum arquivo escolhido</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="doc-row">
-                <div style="flex: 2;">
-                    <label>Autorização Ambiental de Transporte de Produtos Perigosos (IBAMA)</label>
-                    <div class="file-input-container">
-                        <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                        <input type="file" style="display:none" onchange="updateFileName(this)">
-                        <div class="file-name">Nenhum arquivo escolhido</div>
-                    </div>
-                </div>
-                <div style="flex: 1;">
-                    <label>Data de Validade</label>
-                    <input type="date">
-                </div>
-            </div>
-
-            <div class="doc-row">
-                <div style="flex: 2;">
-                    <label>Formulário de Solicitação de Serviço</label>
-                    <div class="file-input-container">
-                        <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                        <input type="file" style="display:none" onchange="updateFileName(this)" required>
-                        <div class="file-name">Nenhum arquivo escolhido</div>
-                    </div>
-                </div>
+            <div class="text-center" style="margin-top: 30px;">
+                <span class="auth-text">Você já tem login?</span> 
+                <a href="#" class="auth-link bold" id="link-voltar-login">Clique aqui</a>
             </div>
         </div>
+    </div>
 
-        <div style="display: flex; gap: 15px; align-items: flex-start; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
-            <input type="checkbox" id="termos" style="margin-top: 5px; width: 18px; height: 18px;" required>
-            <label for="termos" style="font-weight: normal; color: #444; line-height: 1.4; margin-bottom: 0;">
-                Declaro estar ciente das normas operacionais do <b>Complexo Industrial Portuário de Suape</b>. 
-                Em caso de incidentes, a empresa assume total responsabilidade pelos custos decorrentes de contenção, remediação ambiental e atendimento emergencial.
-            </label>
+
+    <div id="agiliza-page" class="view-hidden">
+        <header class="agiliza-header">
+            <div class="logo-text">AGILIZA SUAPE</div>
+            <div class="header-divider"></div>
+            <div class="header-title">Cadastro de Empresas de Resíduos Sólidos e/ou Oleosos</div>
+        </header>
+        <div class="header-yellow-line"></div>
+
+        <div class="container-form">
+            <button class="btn-voltar" id="btn-voltar-home-from-form">&#8592; SAIR E VOLTAR AO PORTAL</button>
+
+            <form id="cadastroForm">
+                <div class="form-section">
+                    <div class="section-title">Dados da Empresa</div>
+                    
+                    <label>Nome da Empresa:</label>
+                    <input type="text" id="razaoSocial" placeholder="Razão Social" required>
+
+                    <label>CNPJ: <span class="sub-label">(Este será o ID de identificação no sistema)</span></label>
+                    <input type="text" id="cnpj" placeholder="00.000.000/0000-00" required>
+                    <input type="hidden" id="empresaId" name="empresaId">
+
+                    <div class="grid-row">
+                        <div><label>CEP:</label><input type="text" id="cep" placeholder="00000-000"></div>
+                        <div><label>Número:</label><input type="text"></div>
+                        <div><label>Complemento:</label><input type="text"></div>
+                    </div>
+
+                    <label>Telefone de Contato:</label>
+                    <input type="tel" id="tel" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Classificação de Serviço e Operação</div>
+
+                    <label>Tipos de Resíduos Tratados:</label>
+                    <div class="options-group">
+                        <label><input type="checkbox" name="tipoResiduo" value="solido"> Resíduos Sólidos</label>
+                        <label><input type="checkbox" name="tipoResiduo" value="liquido"> Resíduos Líquidos (Efluentes)</label>
+                    </div>
+
+                    <label>Tipo de Operação de Retirada Permitida:</label>
+                    <div class="options-group">
+                        <label><input type="checkbox" name="tipoOperacao" value="terrestre"> Terrestre</label>
+                        <label><input type="checkbox" name="tipoOperacao" value="atracada"> Atracada</label>
+                        <label><input type="checkbox" name="tipoOperacao" value="contra_borda"> A Contra Borda</label>
+                        <label><input type="checkbox" name="tipoOperacao" value="ao_largo"> Ao Largo</label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Documentação Obrigatória</div>
+                    <a href="#" class="btn-modelo">BAIXAR MODELOS DE DOCUMENTOS ANEXOS (.ZIP)</a>
+                    
+                    <div class="doc-row">
+                        <div style="flex: 2;">
+                            <label>Carta de Apresentação de Anexo <span class="sub-label">(Conforme modelo da administração)</span></label>
+                            <div class="file-input-container">
+                                <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
+                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <div class="file-name">Nenhum arquivo escolhido</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-row">
+                        <div style="flex: 2;">
+                            <label>Formulário da ANTAQ <span class="sub-label">(PDF)</span></label>
+                            <div class="file-input-container">
+                                <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
+                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <div class="file-name">Nenhum arquivo escolhido</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <label>Data de Validade</label>
+                            <input type="date">
+                        </div>
+                    </div>
+
+                    <div class="doc-row">
+                        <div style="flex: 2;">
+                            <label>Autorização da ANP / Cópia de Autorização da ANTAQ <span class="sub-label">(PDF)</span></label>
+                            <div class="file-input-container">
+                                <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
+                                <input type="file" style="display:none" onchange="updateFileName(this)">
+                                <div class="file-name">Nenhum arquivo escolhido</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <label>Data de Validade</label>
+                            <input type="date">
+                        </div>
+                    </div>
+
+                    <div class="doc-row">
+                        <div style="flex: 2;">
+                            <label>Ato Constitutivo, Estatuto ou Contrato Social</label>
+                            <div class="file-input-container">
+                                <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
+                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <div class="file-name">Nenhum arquivo escolhido</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-row">
+                        <div style="flex: 2;">
+                            <label>Autorização Ambiental de Transporte de Produtos Perigosos (IBAMA)</label>
+                            <div class="file-input-container">
+                                <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
+                                <input type="file" style="display:none" onchange="updateFileName(this)">
+                                <div class="file-name">Nenhum arquivo escolhido</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <label>Data de Validade</label>
+                            <input type="date">
+                        </div>
+                    </div>
+
+                    <div class="doc-row">
+                        <div style="flex: 2;">
+                            <label>Formulário de Solicitação de Serviço</label>
+                            <div class="file-input-container">
+                                <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
+                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <div class="file-name">Nenhum arquivo escolhido</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 15px; align-items: flex-start; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <input type="checkbox" id="termos" style="margin-top: 5px; width: 18px; height: 18px;" required>
+                    <label for="termos" style="font-weight: normal; color: #444; line-height: 1.4; margin-bottom: 0;">
+                        Declaro estar ciente das normas operacionais do <b>Complexo Industrial Portuário de Suape</b>. 
+                        Em caso de incidentes, a empresa assume total responsabilidade pelos custos decorrentes de contenção, remediação ambiental e atendimento emergencial.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-cadastrar">FINALIZAR CADASTRO AGILIZA SUAPE</button>
+            </form>
         </div>
+    </div>
 
-        <button type="submit" class="btn-cadastrar">FINALIZAR CADASTRO AGILIZA SUAPE</button>
-    </form>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body> 
 </html>
